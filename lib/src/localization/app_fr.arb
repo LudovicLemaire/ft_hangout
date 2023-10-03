@@ -1,0 +1,67 @@
+{
+  "appTitle": "globy",
+  "@appTitle": {
+    "description": "Le titre de l'application"
+  },
+  "listViewTitle": "Tous les contacts",
+  "@listViewTitle": {
+    "description": "Le titre de la liste des utilisateurs"
+  },
+  "settings": "Paramètres",
+  "@settings": {
+    "description": "Titre de la page paramètres"
+  },
+  "addContact": "Ajouter Contact",
+  "@addContact": {
+    "description": "Titre de la page Ajout Contact"
+  },
+  "editContact": "Modifier Contact",
+  "@editContact": {
+    "description": "Titre de la page Modifier Contact"
+  },
+  "systemTheme": "Thème du système",
+  "lightTheme": "Thème clair",
+  "darkTheme": "Thème foncé",
+
+  "blue": "Bleu",
+  "red": "Rouge",
+  "green": "Vert",
+  "purple": "Violet",
+  "yellow": "Jaune",
+  "pink": "Rose",
+  "cyan": "Cyan",
+  "brown": "Merde",
+  "indigo": "Indigo",
+
+  "updateBatteryLevel": "Mettre à jour le niveau de la batterie",
+  "unknownBatteryLevel": "Niveua de batterie inconnue",
+  "batteryLevel": "Niveau de la batterie à",
+
+  "failedBatteryLevel": "Echec de la récupération du niveau de la batterie:",
+  "failedConnectDatabase": "Echec de la connexion à la base de donnée",
+  "failedGetContact": "Echec lors de la récupération des informations du Contact",
+  "failedAlreadyUsedNumber": "Ce numéro est déjà utilisé par un autre Contact",
+
+  "firstNameContact": "Prénom",
+  "lastNameContact": "Nom",
+  "addressContact": "Adresse",
+  "aliasContact": "Alias",
+  "phoneContact": "Numéro de téléphone",
+
+  "validateIsEmpty": "Ne peut être vide",
+  "validateTooShort": "Pas assez de caractère, le minimum est",
+  "validateInvalidePhoneNumber": "Veuillez saisir un numéro de téléphone valide",
+
+  "delete": "Supprimer",
+  "cancel": "Annuler",
+  "confirmDelete": "Êtes vous sûr de vouloir supprimer",
+  "typeMessage": "Saisir le message",
+
+  "settingAddMyself": "Ajouter moi",
+  "settingAddFakeContacts": "Ajouter faux contacts",
+  "settingSendSms": "Envoyer SMS",
+  "settingDeleteAllContacts": "Supprimer contacts",
+  "settingAddContactsFromPhone": "Ajouter les contacts depuis le téléphone",
+
+  "noPermission": "Vous avez besoin de la permission"
+}

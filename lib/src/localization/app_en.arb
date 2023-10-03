@@ -1,0 +1,67 @@
+{
+  "appTitle": "globy",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "listViewTitle": "All contacts",
+  "@listViewTitle": {
+    "description": "The title of the user list view"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings title view"
+  },
+  "addContact": "Add Contact",
+  "@addContact": {
+    "description": "Title of the Add Contact view"
+  },
+  "editContact": "Edit Contact",
+  "@editContact": {
+    "description": "Title of the Edit Contact view"
+  },
+  "systemTheme": "System Theme",
+  "lightTheme": "Light Theme",
+  "darkTheme": "Dark Theme",
+
+  "blue": "Blue",
+  "red": "Red",
+  "green": "Green",
+  "purple": "Purple",
+  "yellow": "Yellow",
+  "pink": "Pink",
+  "cyan": "Cyan",
+  "brown": "Brown",
+  "indigo": "Indigo",
+
+  "updateBatteryLevel": "Update battery level",
+  "unknownBatteryLevel": "Unknown battery level",
+  "batteryLevel": "Battery level at",
+
+  "failedBatteryLevel": "Failed to get battery level:",
+  "failedConnectDatabase": "Failed to connect to the Database",
+  "failedGetContact": "Failed to get Contact datas",
+  "failedAlreadyUsedNumber": "This number is already used by another Contact",
+
+  "firstNameContact": "First name",
+  "lastNameContact": "Last name",
+  "addressContact": "Address",
+  "aliasContact": "Alias",
+  "phoneContact": "Phone number",
+
+  "validateIsEmpty": "Cannot be empty",
+  "validateTooShort": "Not enough character, minimum is",
+  "validateInvalidePhoneNumber": "Please enter valid mobile number",
+
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "confirmDelete": "Are you sure you want to delete",
+  "typeMessage": "Type message",
+
+  "settingAddMyself": "Add myself",
+  "settingAddFakeContacts": "Add fake contacts",
+  "settingSendSms": "Sens SMS",
+  "settingDeleteAllContacts": "Delete all contacts",
+  "settingAddContactsFromPhone": "Add contacts from phone",
+
+  "noPermission": "You need permission"
+}
