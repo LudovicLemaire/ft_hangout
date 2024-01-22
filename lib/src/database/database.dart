@@ -240,8 +240,6 @@ Future<void> addFakeContacts(BuildContext context) async {
   cList.add(const Contact(
       firstName: 'Kelly', lastName: 'Diote', phone: '+33644626217'));
   cList.add(const Contact(
-      firstName: 'Hank', lastName: 'Huler', phone: '+33644626218'));
-  cList.add(const Contact(
       firstName: 'Alain', lastName: 'Proviste', phone: '+33644626219'));
   cList.add(const Contact(
       firstName: 'Jean', lastName: 'Bambois', phone: '+33644626946'));
@@ -255,8 +253,6 @@ Future<void> addFakeContacts(BuildContext context) async {
       firstName: 'Maude', lastName: 'Erateur', phone: '+33644626945'));
   cList.add(const Contact(
       firstName: 'Marc', lastName: 'Assain', phone: '+33644626945'));
-  cList.add(const Contact(
-      firstName: 'Matt', lastName: 'Messin', phone: '+33644626945'));
   cList.add(
       const Contact(firstName: 'Amar', lastName: 'Di', phone: '+33644626945'));
   cList.add(const Contact(
@@ -280,8 +276,6 @@ Future<void> addFakeContacts(BuildContext context) async {
   cList.add(const Contact(
       firstName: 'Max', lastName: 'Hymôme', phone: '+33644626945'));
   cList.add(const Contact(
-      firstName: 'Jaime', lastName: 'Labyte', phone: '+33644626945'));
-  cList.add(const Contact(
       firstName: 'Mick', lastName: 'Emmaus', phone: '+33644626945'));
   cList.add(
       const Contact(firstName: 'Lila', lastName: 'Doc', phone: '+33644626945'));
@@ -291,8 +285,6 @@ Future<void> addFakeContacts(BuildContext context) async {
       const Contact(firstName: 'Pit', lastName: 'Za', phone: '+33644626945'));
   cList.add(const Contact(
       firstName: 'Gérard', lastName: 'Manchot', phone: '+33644626945'));
-  cList.add(const Contact(
-      firstName: 'Bébou', lastName: 'Esketumem', phone: '+33644626949'));
   for (final contact in cList) {
     insertContact(context, contact);
   }
