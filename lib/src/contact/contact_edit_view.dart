@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+import 'dart:io';
 
 import '../database/database.dart';
 
@@ -48,6 +52,8 @@ class _ContactEditViewState extends State<ContactEditView> {
   final addressController = TextEditingController();
   late Contact? contact;
 
+  String imagePath = '';
+
   String? firstNameError;
   String? phoneError;
 
@@ -66,7 +72,8 @@ class _ContactEditViewState extends State<ContactEditView> {
         lastName: lastNameController.text,
         phone: phoneController.text,
         address: addressController.text,
-        alias: aliasController.text);
+        alias: aliasController.text,
+        imagePath: imagePath.isEmpty ? null : imagePath);
 
     if (tmpFirstNameError == null && tmpPhoneError == null) {
       bool? resultInsert = await editContact(context, newContact);
@@ -143,6 +150,48 @@ class _ContactEditViewState extends State<ContactEditView> {
                   padding: const EdgeInsets.all(15.0),
                   child: SingleChildScrollView(
                       child: Column(children: <Widget>[
+                    const Padding(padding: EdgeInsets.all(5.0)),
+                    GestureDetector(
+                      onTap: () async {
+                        File? storedImage;
+                        final XFile? image = await ImagePicker()
+                            .pickImage(source: ImageSource.gallery);
+
+                        if (image == null) return;
+
+                        final duplicateFile =
+                            await getApplicationDocumentsDirectory();
+                        final String duplicateFilePath = duplicateFile.path;
+
+                        setState(() {
+                          storedImage = File(image.path);
+                        });
+
+                        final fileName = basename(storedImage!.path);
+                        await image.saveTo('$duplicateFilePath/$fileName');
+                        imagePath = '$duplicateFilePath/$fileName';
+                      },
+                      child: (imagePath.isEmpty == false)
+                          ? CircleAvatar(
+                              backgroundImage: FileImage(File(imagePath)),
+                              radius: 50,
+                              backgroundColor: Colors.white,
+                            )
+                          : (contact!.imagePath != null &&
+                                  contact!.imagePath!.isEmpty == false)
+                              ? CircleAvatar(
+                                  backgroundImage:
+                                      FileImage(File(contact!.imagePath!)),
+                                  radius: 50,
+                                  backgroundColor: Colors.white,
+                                )
+                              : CircleAvatar(
+                                  foregroundImage: AssetImage(
+                                      'assets/images/dino_${(contact!.id! % 18) + 1}.png'),
+                                  radius: 50,
+                                  backgroundColor: Colors.white,
+                                ),
+                    ),
                     const Padding(padding: EdgeInsets.all(5.0)),
                     TextField(
                       controller: firstNameController,

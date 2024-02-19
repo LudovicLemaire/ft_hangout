@@ -118,7 +118,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   late Future<Database> database;
   static void _createDb(Database db) {
     db.execute(
-        'CREATE TABLE contacts(id INTEGER PRIMARY KEY AUTOINCREMENT, firstName TEXT NOT NULL, lastName TEXT, address TEXT, alias TEXT, phone TEXT NOT NULL)');
+        'CREATE TABLE contacts(id INTEGER PRIMARY KEY AUTOINCREMENT, firstName TEXT NOT NULL, lastName TEXT, address TEXT, alias TEXT, phone TEXT NOT NULL, imagePath TEXT)');
   }
 
   void initDatabase() async {

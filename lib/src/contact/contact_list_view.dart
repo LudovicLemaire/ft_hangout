@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:globy/src/app.dart';
@@ -93,16 +95,23 @@ class _ContactListViewState extends State<ContactListView>
                 itemCount: data.length,
                 itemBuilder: (BuildContext context, int index) {
                   final item = data[index];
+                  print(item.toString());
                   return Card(
                       child: ListTile(
                           title: Text(
                               '${item.firstName} ${item.lastName ?? ''} ${item.alias != null && item.alias!.isNotEmpty ? '(${item.alias})' : ''}'),
-                          leading: CircleAvatar(
-                            foregroundImage: AssetImage(
-                                'assets/images/dino_${(item.id! % 18) + 1}.png'),
-                            backgroundColor:
-                                const Color.fromARGB(255, 255, 255, 255),
-                          ),
+                          leading: (item.imagePath != null &&
+                                  item.imagePath!.isEmpty == false)
+                              ? CircleAvatar(
+                                  backgroundImage:
+                                      FileImage(File(item.imagePath!)),
+                                  backgroundColor: Colors.white,
+                                )
+                              : CircleAvatar(
+                                  foregroundImage: AssetImage(
+                                      'assets/images/dino_${(item.id! % 18) + 1}.png'),
+                                  backgroundColor: Colors.white,
+                                ),
                           onTap: () async {
                             if (await platform.invokeMethod('check_permission',
                                 <String, dynamic>{"type": 'all_sms'})) {

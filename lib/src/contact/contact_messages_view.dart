@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -434,12 +436,19 @@ class _ContactMessagesViewState extends State<ContactMessagesView>
                                   style: const TextStyle(color: Colors.white),
                                 ),
                                 leading: item.type == SmsType.MESSAGE_TYPE_INBOX
-                                    ? CircleAvatar(
-                                        foregroundImage: AssetImage(
-                                            'assets/images/dino_${(contact!.id! % 18) + 1}.png'),
-                                        backgroundColor: const Color.fromARGB(
-                                            255, 255, 255, 255),
-                                      )
+                                    ? (contact!.imagePath != null &&
+                                            contact!.imagePath!.isEmpty ==
+                                                false)
+                                        ? CircleAvatar(
+                                            backgroundImage: FileImage(
+                                                File(contact!.imagePath!)),
+                                            backgroundColor: Colors.white,
+                                          )
+                                        : CircleAvatar(
+                                            foregroundImage: AssetImage(
+                                                'assets/images/dino_${(contact!.id! % 18) + 1}.png'),
+                                            backgroundColor: Colors.white,
+                                          )
                                     : null,
                               ),
                             )),

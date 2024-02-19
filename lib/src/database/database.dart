@@ -13,6 +13,7 @@ class Contact {
   final String? address;
   final String? alias;
   final String phone;
+  final String? imagePath;
 
   const Contact(
       {this.id,
@@ -20,7 +21,8 @@ class Contact {
       this.lastName,
       this.address,
       this.alias,
-      required this.phone});
+      required this.phone,
+      this.imagePath});
 
   // Convert a Contact into a Map. The keys must correspond to the names of the
   // columns in the database.
@@ -31,7 +33,8 @@ class Contact {
       'lastName': lastName,
       'address': address ?? '',
       'alias': alias ?? '',
-      'phone': phone
+      'phone': phone,
+      'imagePath': imagePath ?? ''
     };
   }
 
@@ -39,7 +42,7 @@ class Contact {
   // each contact when using the print statement.
   @override
   String toString() {
-    return 'Contact{id: $id, firstName: $firstName, lastName: $lastName, address: $address, alias: $alias, phone: $phone}';
+    return 'Contact{id: $id, firstName: $firstName, lastName: $lastName, address: $address, alias: $alias, phone: $phone, imagePath: $imagePath}';
   }
 }
 
@@ -175,8 +178,8 @@ Future<List<Contact>?> getContactsMini(BuildContext context) async {
   if (db == null) return null;
 
   // Query the table for all The Contacts.
-  final List<Map<String, dynamic>> maps =
-      await db.rawQuery('SELECT id, firstName, lastName, alias FROM contacts');
+  final List<Map<String, dynamic>> maps = await db.rawQuery(
+      'SELECT id, firstName, lastName, alias, imagePath FROM contacts');
 
   // Convert the List<Map<String, dynamic> into a List<Contact>.
   return List.generate(maps.length, (i) {
@@ -187,6 +190,7 @@ Future<List<Contact>?> getContactsMini(BuildContext context) async {
       address: null,
       alias: maps[i]['alias'],
       phone: '',
+      imagePath: maps[i]['imagePath'],
     );
   });
 }
@@ -212,6 +216,7 @@ Future<Contact?> getContactInfo(BuildContext context, int contactId) async {
     address: maps[0]['address'],
     alias: maps[0]['alias'],
     phone: maps[0]['phone'],
+    imagePath: maps[0]['imagePath'],
   );
 }
 
@@ -240,6 +245,8 @@ Future<void> addFakeContacts(BuildContext context) async {
   cList.add(const Contact(
       firstName: 'Kelly', lastName: 'Diote', phone: '+33644626217'));
   cList.add(const Contact(
+      firstName: 'Hank', lastName: 'Huler', phone: '+33644626218'));
+  cList.add(const Contact(
       firstName: 'Alain', lastName: 'Proviste', phone: '+33644626219'));
   cList.add(const Contact(
       firstName: 'Jean', lastName: 'Bambois', phone: '+33644626946'));
@@ -253,6 +260,8 @@ Future<void> addFakeContacts(BuildContext context) async {
       firstName: 'Maude', lastName: 'Erateur', phone: '+33644626945'));
   cList.add(const Contact(
       firstName: 'Marc', lastName: 'Assain', phone: '+33644626945'));
+  cList.add(const Contact(
+      firstName: 'Matt', lastName: 'Messin', phone: '+33644626945'));
   cList.add(
       const Contact(firstName: 'Amar', lastName: 'Di', phone: '+33644626945'));
   cList.add(const Contact(
